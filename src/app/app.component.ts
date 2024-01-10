@@ -38,7 +38,7 @@ export class AppComponent {
       strengthText?.setValue('Passwords do not match');
       this.userForm
         .get('strengthColorClass')?.setValue('password-strength--easy');
-      this.strengthBarClass = 'bar-empty';
+      this.strengthBarClass = 'bar-lessThanEight'
       this.passwordMismatch = true;
 
       return;
@@ -74,7 +74,10 @@ export class AppComponent {
 
     if (password.length === 0) {
       strengthText?.setValue('field is empty');
-      this.strengthBarClass = 'bar-empty';
+      this.strengthBarClass = 'bar';
+    } else if (password.length < 8) {
+      this.strengthBarClass = 'bar-lessThanEight'
+      strengthText?.setValue('easy');
     } else if (hasLetters && hasNumbers && hasSymbols && hasEightSymbols) {
       strengthText?.setValue('strong');
       this.strengthBarClass = 'bar-strong';

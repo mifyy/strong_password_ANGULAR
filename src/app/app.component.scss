@@ -48,6 +48,7 @@
   height: 3px;
   overflow: hidden;
   transition: background-color 0.5s ease;
+  background-color: grey;
 
   &-easy {
     &:nth-child(-n + 1) {
@@ -67,7 +68,7 @@
     }
   }
 
-  &-empty {
+  &-lessThanEight {
     background-color: red;
   }
 }
